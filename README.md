@@ -1,5 +1,5 @@
 # POC_Application
-it gives POC for applicaiton
+It gives POC for applicaiton
 
 Steps which I've used to create the POC. Basically I've created 2 directoies
 1. frontend :- frontend contains Design of appllication which is using Html, Angular, Css
