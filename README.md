@@ -57,3 +57,59 @@ For that We can use *json-server*. *How to install json-server :-*
 
 Create *db.json* file inside any place then swtich to respecite directory and run below command :-
 ```json-server --watch db.json```
+
+**2. backend**
+
+
+*Pre-Requisite:-*
+1. Python 3.5 should be installed
+2. virtualenv should be installed
+
+We need to create virtual environment
+
+How to create virutal environment :- 
+```virtualenv poc_virtual_env```
+
+Activate created virutal environment :- 
+```source poc_virtual_env/bin/activate ```
+
+switch to backend directory :- cd backend/
+
+create App :- 
+```python manage.py startapp user_app```
+
+create migration script :- 
+```python manage.py makemigrations user_app```
+
+Migrate model to database :- 
+```python manage.py migrate```
+
+**3. Integrate frontend(Angular) with backend(DRF)**
+
+We need to instal python CORS package using below command:-
+```pip install django-cors-headers```
+
+Following changes have been made in *settings.py* file
+
+add it to your installed apps:
+```
+INSTALLED_APPS = (
+    ...
+    'corsheaders',
+    ...
+)
+```
+We will also need to add a middleware class to listen in on responses:
+```
+MIDDLEWARE = [  # Or MIDDLEWARE_CLASSES on Django < 1.10
+    ...
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    ...
+]
+```
+CorsMiddleware should be placed as high as possible, especially before any middleware that can generate responses such as Django's CommonMiddleware or Whitenoise's WhiteNoiseMiddleware. If it is not before, it will not be able to add the CORS headers to these responses
+
+*add Below flags*
+```CORS_ORIGIN_ALLOW_ALL = True```
+CORS_ALLOW_CREDENTIALS = False
