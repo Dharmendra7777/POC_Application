@@ -1,13 +1,13 @@
 {
-  "users": [
+  "user": [
     {
-      "name": "Dharmendra Mahida",
-      "role": "Admin",
+      "user_name": "Dharmendra Mahida",
+      "user_role": "Admin",
       "id": 1
     },
     {
-      "name": "Sahil Patel",
-      "role": "Client",
+      "user_name": "Sahil Patel",
+      "user_role": "Client",
       "id": 2
     }
   ]

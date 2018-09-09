@@ -10,7 +10,9 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class UserServiceService {
 
-  userUrl = "http://localhost:3000/users";
+  userUrl = "http://localhost:3000/user";
+
+  //userUrl = "http://localhost:8000/user";
 
   //Create constructor to get Http instance
   constructor(private http:Http) { 
@@ -23,9 +25,10 @@ export class UserServiceService {
   }
 
   createUser(user: User):Observable<number> {
+    console.log(user);
     let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: cpHeaders });
-    return this.http.post(this.userUrl, user, options)
+    return this.http.post(this.userUrl + "/", user, options)
     .pipe(map(success => success.status),
         catchError(this.handleError));
   } 
@@ -34,17 +37,18 @@ export class UserServiceService {
   getUserById(userId: string): Observable<User> {
       let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: cpHeaders });
-      console.log(this.userUrl +"/"+ userId);
-      return this.http.get(this.userUrl +"/"+ userId)
+      //console.log(this.userUrl +"/"+ userId + "/");
+      return this.http.get(this.userUrl +"/"+ userId + "/")
       .pipe(map(this.extractData),
       catchError(this.handleError));
   }	
 
   //Update user
   updateUser(user: User):Observable<number> {
+      console.log(user);
       let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: cpHeaders });
-      return this.http.put(this.userUrl +"/"+ user.id, user, options)
+      return this.http.put(this.userUrl +"/"+ user.id + "/", user, options)
       .pipe(map(this.extractData),
       catchError(this.handleError));
   }
@@ -53,7 +57,7 @@ export class UserServiceService {
   deleteUserById(userId: string): Observable<number> {
       let cpHeaders = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: cpHeaders });
-      return this.http.delete(this.userUrl +"/"+ userId)
+      return this.http.delete(this.userUrl +"/"+ userId + "/")
       .pipe(map(this.extractData),
       catchError(this.handleError));
   }	

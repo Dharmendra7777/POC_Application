@@ -9,11 +9,11 @@
 <div>
 <form [formGroup]="userForm" (ngSubmit)="onUserFormSubmit()">
  <table>
-   <tr><td>Enter Name</td><td><input formControlName="name">
-   <label *ngIf="userForm.get('name').invalid && processValidation" [ngClass] = "'error'"> Name is required. </label>
+   <tr><td>Enter Name</td><td><input formControlName="user_name">
+   <label *ngIf="userForm.get('user_name').invalid && processValidation" [ngClass] = "'error'"> Name is required. </label>
    </td></tr>
-   <tr><td>Enter Role</td><td><input formControlName="role">
-   <label *ngIf="userForm.get('role').invalid && processValidation" [ngClass] = "'error'"> Role is required. </label>
+   <tr><td>Enter Role</td><td><input formControlName="user_role">
+   <label *ngIf="userForm.get('user_role').invalid && processValidation" [ngClass] = "'error'"> Role is required. </label>
    </td></tr>	
    <tr><td colspan="2">
    <button *ngIf="!userIdToUpdate">CREATE</button>  
@@ -48,7 +48,7 @@
 <table>
  <tr><th> Id</th> <th>Name</th><th>Role</th><th></th><th></th></tr>
  <tr *ngFor="let user of allUsers" >
-       <td>{{user.id}}</td> <td>{{user.name}}</td> <td>{{user.role}}</td>
+       <td>{{user.id}}</td> <td>{{user.user_name}}</td> <td>{{user.user_role}}</td>
  <td><button type="button" (click)="loadUserToEdit(user.id)">Edit</button> </td> 
  <td><button type="button" (click)="deleteUser(user.id)">Delete</button></td>
  </tr>

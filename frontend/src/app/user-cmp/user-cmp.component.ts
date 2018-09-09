@@ -18,8 +18,8 @@ export class UserCmpComponent implements OnInit {
    processValidation = false;
    //Create form
    userForm = new FormGroup({
-       name: new FormControl('', Validators.required),
-       role: new FormControl('', Validators.required)	   
+       user_name: new FormControl('', Validators.required),
+       user_role: new FormControl('', Validators.required)	   
    });
    //Create constructor to get service instance
    constructor(private userServiceService: UserServiceService) {
@@ -83,7 +83,7 @@ export class UserCmpComponent implements OnInit {
       this.userServiceService.getUserById(userId)
 	   .subscribe(user => {
 	            this.userIdToUpdate = user.id;   
-	            this.userForm.setValue({ name: user.name, role: user.role });
+	            this.userForm.setValue({ user_name: user.user_name, user_role: user.user_role });
 	   	    this.processValidation = true;
 		    this.requestProcessing = false;   
 	   },
