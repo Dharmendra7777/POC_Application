@@ -10,9 +10,9 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 export class UserServiceService {
 
-  userUrl = "http://localhost:3000/user";
+  //userUrl = "http://localhost:3000/user";
 
-  //userUrl = "http://localhost:8000/user";
+  userUrl = "http://localhost:8000/user";
 
   //Create constructor to get Http instance
   constructor(private http:Http) { 
