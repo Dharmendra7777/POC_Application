@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "name": "Dharmendra Mahida",
+      "role": "Admin",
+      "id": 1
+    },
+    {
+      "name": "Sahil Patel",
+      "role": "Client",
+      "id": 2
+    }
+  ]
+}
